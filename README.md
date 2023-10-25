@@ -10,4 +10,4 @@ Mesto-react это SPA, адаптивный фото-блог.
 * API
 * Файловая структура БЭМ Nested
 
-Ссылка на проект [https://trallik74.github.io/mesto-react/](https://trallik74.github.io/mesto-react/)
+Ссылка на проект [https://trallik74.github.io/react-mesto-auth/](https://trallik74.github.io/react-mesto-auth/)
