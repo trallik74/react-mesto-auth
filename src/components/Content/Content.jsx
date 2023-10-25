@@ -36,7 +36,7 @@ export default function Content({ email, handleLogout, ...props }) {
 
   function signOut() {
     handleLogout();
-    navigate("/react-mesto-auth/sign-in", { replace: true });
+    navigate("/sign-in", { replace: true });
   }
 
   useEffect(() => {
