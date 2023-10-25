@@ -78,7 +78,7 @@ export default function App() {
     setIsLoggedIn(true);
   }
 
-  function handleLogot() {
+  function handleLogout() {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
   }
@@ -95,7 +95,7 @@ export default function App() {
               isLoggedIn={isLoggedIn}
               handleNotification={handleNotification}
               email={email}
-              handleLogot={handleLogot}
+              handleLogout={handleLogout}
             />
           }
         />

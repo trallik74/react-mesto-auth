@@ -13,7 +13,7 @@ import { IsLoadingContext } from "../../context/IsLoadingContext";
 import Header from "../Header/Header";
 import { useNavigate } from "react-router-dom";
 
-export default function Content({ email, handleLogot, ...props }) {
+export default function Content({ email, handleLogout, ...props }) {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
@@ -35,7 +35,7 @@ export default function Content({ email, handleLogot, ...props }) {
   const navigate = useNavigate();
 
   function signOut() {
-    handleLogot();
+    handleLogout();
     navigate("/react-mesto-auth/sign-in", { replace: true });
   }
 
