@@ -37,7 +37,7 @@ export default function Content({ email, ...props }) {
 
   function signOut() {
     localStorage.removeItem("jwt");
-    navigate("/sign-in", { replace: true });
+    navigate("/react-mesto-auth/sign-in", { replace: true });
   }
 
   useEffect(() => {

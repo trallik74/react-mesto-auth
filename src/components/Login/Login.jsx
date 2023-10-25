@@ -23,7 +23,7 @@ export default function Login({ handleNotification, handleLogin, setEmail }) {
         if (res.token) {
           handleLogin();
           setEmail(values.email);
-          navigate("/", { replace: true });
+          navigate("/react-mesto-auth", { replace: true });
           setValues({
             email: "",
             password: "",
@@ -38,7 +38,7 @@ export default function Login({ handleNotification, handleLogin, setEmail }) {
   return (
     <div className="page__content">
       <Header>
-        <Link className="menu__item" to="/sign-up">
+        <Link className="menu__item" to="/react-mesto-auth/sign-up">
           Регистрация
         </Link>
       </Header>

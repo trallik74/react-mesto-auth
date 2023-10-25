@@ -21,7 +21,7 @@ export default function Register({ setTooltipData, handleNotification }) {
     register(values["password"], values["email"])
       .then((res) => {
         setTooltipData((data) => ({ ...data, isOpen: true, isCorrect: true }));
-        navigate("/sign-in", { replace: true });
+        navigate("/react-mesto-auth/sign-in", { replace: true });
         setValues({
           email: "",
           password: "",
@@ -37,7 +37,7 @@ export default function Register({ setTooltipData, handleNotification }) {
     <>
       <div className="page__content">
         <Header>
-          <Link className="menu__item" to="/sign-in">
+          <Link className="menu__item" to="/react-mesto-auth/sign-in">
             Войти
           </Link>
         </Header>
@@ -88,7 +88,7 @@ export default function Register({ setTooltipData, handleNotification }) {
               Зарегистрироваться
             </button>
           </form>
-          <Link className="define-section__link" to="/sign-in">
+          <Link className="define-section__link" to="/react-mesto-auth/sign-in">
             Уже зарегистрированы? Войти
           </Link>
         </section>

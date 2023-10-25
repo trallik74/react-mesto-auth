@@ -81,9 +81,9 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/react-mesto-auth" replace />} />
         <Route
-          path="/"
+          path="/react-mesto-auth"
           element={
             <ProtectedRoute
               element={Content}
@@ -94,7 +94,7 @@ export default function App() {
           }
         />
         <Route
-          path="/sign-in"
+          path="/react-mesto-auth/sign-in"
           element={
             <Login
               handleNotification={handleNotification}
@@ -104,7 +104,7 @@ export default function App() {
           }
         />
         <Route
-          path="/sign-up"
+          path="/react-mesto-auth/sign-up"
           element={
             <Register
               setTooltipData={setTooltipData}
