@@ -13,13 +13,12 @@ import { IsLoadingContext } from "../../context/IsLoadingContext";
 import Header from "../Header/Header";
 import { useNavigate } from "react-router-dom";
 
-export default function Content({ email, ...props }) {
+export default function Content({ email, handleLogot, ...props }) {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
   const [isConfirmPopupOpen, setIsConfirmPopupOpen] = useState(false);
-
   const [isLoading, setIsLoading] = useState(false);
   const [isRender, setIsRender] = useState(false);
   const [currentUser, setCurrentUser] = useState({
@@ -36,7 +35,7 @@ export default function Content({ email, ...props }) {
   const navigate = useNavigate();
 
   function signOut() {
-    localStorage.removeItem("jwt");
+    handleLogot();
     navigate("/react-mesto-auth/sign-in", { replace: true });
   }
 

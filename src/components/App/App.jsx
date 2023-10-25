@@ -78,6 +78,11 @@ export default function App() {
     setIsLoggedIn(true);
   }
 
+  function handleLogot() {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+  }
+
   return (
     <>
       <Routes>
@@ -90,6 +95,7 @@ export default function App() {
               isLoggedIn={isLoggedIn}
               handleNotification={handleNotification}
               email={email}
+              handleLogot={handleLogot}
             />
           }
         />
