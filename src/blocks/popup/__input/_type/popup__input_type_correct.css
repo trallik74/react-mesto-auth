@@ -1,0 +1,8 @@
+.popup__input_type_correct {
+  border-color: #0c0;
+}
+
+.popup__input_type_correct:focus {
+  outline: 1px solid#0c0;
+  border-radius: 5px;
+}

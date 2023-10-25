@@ -1,0 +1,6 @@
+.page {
+  font-family: 'Inter', arial, sans-serif;
+  font-weight: 400;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}

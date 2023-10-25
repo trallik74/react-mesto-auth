@@ -1,0 +1,8 @@
+.popup__input_type_error {
+  border-color: red;
+}
+
+.popup__input_type_error:focus {
+  outline: 1px solid red;
+  border-radius: 5px;
+}

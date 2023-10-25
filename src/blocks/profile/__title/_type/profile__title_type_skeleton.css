@@ -1,0 +1,16 @@
+.profile__title_type_skeleton {
+  min-width: 294px;
+  min-height: 48px;
+  background-color: #a6a6a6;
+  border-radius: 20px;
+}
+
+
+@media (max-width: 450px){
+  .profile__title_type_skeleton {
+    min-width: 189px;
+    min-height: 27px;
+    border-radius: 10px;
+  }
+}
+

@@ -1,0 +1,13 @@
+.define-section {
+  max-width: 360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+@media (max-width: 400px) {
+  .define-section {
+    max-width: 260px;
+  }
+}

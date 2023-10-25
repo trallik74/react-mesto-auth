@@ -1,0 +1,28 @@
+.menu__item_type_email {
+  max-width: 500px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.menu__item_type_email:hover {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .menu__item_type_email {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu__item_type_email {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 400px) {
+  .menu__item_type_email {
+    display: none;
+  }
+}

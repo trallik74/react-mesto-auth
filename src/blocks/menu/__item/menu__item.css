@@ -1,0 +1,21 @@
+.menu__item {
+  color: var(--color-white);
+  font-size: 18px;
+  line-height: 22px;
+  text-decoration: none;
+  margin: 6px 0 0;
+}
+
+.menu__item:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+  .menu__item {
+    font-size: 14px;
+    line-height: 1;
+  }
+  .menu__item:last-of-type {
+    margin-right: 30px;
+  }
+}

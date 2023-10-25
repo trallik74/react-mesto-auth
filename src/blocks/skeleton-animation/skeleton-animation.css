@@ -1,0 +1,22 @@
+.skeleton-animation {
+  animation:  3s ease 0s infinite gradient;
+  background-size: 500%;
+  background-image: linear-gradient(
+    to right,
+    #a6a6a6,
+    #d9d9d9,
+    #a6a6a6
+  );
+}
+
+@keyframes gradient {
+  0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

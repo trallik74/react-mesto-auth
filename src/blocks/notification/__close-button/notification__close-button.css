@@ -1,0 +1,21 @@
+.notification__close-button {
+  padding: 0;
+  outline: 0;
+  border-radius: 50%;
+  background-image: url(../../../images/close_Icon.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .notification__close-button {
+    display: none;
+  }
+}

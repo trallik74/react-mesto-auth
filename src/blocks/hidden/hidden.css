@@ -1,0 +1,9 @@
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.hideen:hover {
+  visibility: hidden;
+  opacity: 0;
+}

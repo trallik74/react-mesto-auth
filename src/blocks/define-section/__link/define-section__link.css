@@ -1,0 +1,18 @@
+.define-section__link {
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1;
+  margin-top: 15px;
+}
+
+.define-section__link:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 400px) {
+  .define-section__link {
+    margin-top: 20px;
+  }
+}

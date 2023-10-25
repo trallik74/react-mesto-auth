@@ -1,0 +1,5 @@
+.define-form__label {
+  min-height: 57px;
+  display: flex;
+  flex-direction: column;
+}

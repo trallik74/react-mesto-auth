@@ -1,0 +1,11 @@
+:root {
+  --color-black: #000;
+  --color-grey: #545454;
+  --color-white: #fff;
+  --color-red: #F00;
+  --bg-color: var(--color-black);
+  --text-color: var(--color-white);
+  --element-heading-color: var(--color-black);
+  --error-color: var(--color-red);
+  --element-counter-color: var(--color-black);
+}

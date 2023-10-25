@@ -1,0 +1,8 @@
+.define-form__input-error {
+  color: var(--error-color);
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

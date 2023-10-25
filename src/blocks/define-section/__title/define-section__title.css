@@ -1,0 +1,14 @@
+.define-section__title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  margin: 25px 0 50px;
+}
+
+@media (max-width: 400px) {
+  .define-section__title {
+    font-size: 20px;
+    margin: 0 0 43px;
+  }
+}

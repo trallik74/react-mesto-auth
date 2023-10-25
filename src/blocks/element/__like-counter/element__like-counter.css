@@ -1,0 +1,9 @@
+.element__like-counter {
+  color: var(--element-counter-color);
+  max-width: 25px;
+  line-height: 1;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

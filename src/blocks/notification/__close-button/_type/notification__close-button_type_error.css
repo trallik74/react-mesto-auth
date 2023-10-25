@@ -1,0 +1,4 @@
+.notification__close-button_type_error {
+  border: 2px solid rgb(196, 0, 17);
+  background-color: rgb(196, 0, 17);
+}
