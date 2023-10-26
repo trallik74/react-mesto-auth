@@ -7,13 +7,17 @@ import Register from "../Register/Register";
 import InfoTooltip from "../InfoTooltip/InfoTooltip";
 import UpdateDataNotification from "../UpdateDataNotification/UpdateDataNotification";
 import { checkToken } from "../../utils/auth";
+import errorHandler from "../../utils/errorHandler";
+import { IsLoadingContext } from "../../context/IsLoadingContext";
 
 export default function App() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [tooltipData, setTooltipData] = useState({
     isOpen: false,
     isCorrect: false,
+    message: "",
   });
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [notificationSettings, setNotificationSettings] = useState({
@@ -30,13 +34,20 @@ export default function App() {
   const handleTokenCheck = () => {
     if (localStorage.getItem("jwt")) {
       const jwt = localStorage.getItem("jwt");
-      checkToken(jwt).then((res) => {
-        if (res) {
-          setIsLoggedIn(true);
-          navigate("/", { replace: true });
-          setEmail(res.data.email);
-        }
-      });
+      checkToken(jwt)
+        .then((res) => {
+          if (res) {
+            setIsLoggedIn(true);
+            navigate("/", { replace: true });
+            setEmail(res.data.email);
+          }
+        })
+        .catch((err) => {
+          errorHandler(err);
+          setIsLoggedIn(false);
+          navigate("/sign-in", { replace: true });
+          setEmail("");
+        });
     }
   };
 
@@ -85,43 +96,47 @@ export default function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="*" element={<Navigate to="/" replace />} />
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute
-              element={Content}
-              isLoggedIn={isLoggedIn}
-              handleNotification={handleNotification}
-              email={email}
-              handleLogout={handleLogout}
-            />
-          }
-        />
-        <Route
-          path="/sign-in"
-          element={
-            <Login
-              handleNotification={handleNotification}
-              handleLogin={handleLogin}
-              setEmail={setEmail}
-            />
-          }
-        />
-        <Route
-          path="/sign-up"
-          element={
-            <Register
-              setTooltipData={setTooltipData}
-              handleNotification={handleNotification}
-            />
-          }
-        />
-      </Routes>
+      <IsLoadingContext.Provider value={[isLoading, setIsLoading]}>
+        <Routes>
+          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute
+                element={Content}
+                isLoggedIn={isLoggedIn}
+                handleNotification={handleNotification}
+                email={email}
+                handleLogout={handleLogout}
+              />
+            }
+          />
+          <Route
+            path="/sign-in"
+            element={
+              <Login
+                setTooltipData={setTooltipData}
+                handleLogin={handleLogin}
+                setEmail={setEmail}
+              />
+            }
+          />
+          <Route
+            path="/sign-up"
+            element={
+              <Register
+                setTooltipData={setTooltipData}
+                handleNotification={handleNotification}
+              />
+            }
+          />
+        </Routes>
+      </IsLoadingContext.Provider>
+
       <InfoTooltip
         isOpen={tooltipData.isOpen}
         isCorrect={tooltipData.isCorrect}
+        message={tooltipData.message}
         onClose={handleTooltipClose}
       />
       {isNotificationOpen && (

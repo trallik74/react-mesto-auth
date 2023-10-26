@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { register } from "../../utils/auth";
 import errorHandler from "../../utils/errorHandler";
+import Loader from "../Loader/Loader";
 
-export default function Register({ setTooltipData, handleNotification }) {
+export default function Register({ setTooltipData }) {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -17,10 +19,15 @@ export default function Register({ setTooltipData, handleNotification }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-
+    setIsLoading(true);
     register(values["password"], values["email"])
       .then((res) => {
-        setTooltipData((data) => ({ ...data, isOpen: true, isCorrect: true }));
+        setTooltipData((data) => ({
+          ...data,
+          isOpen: true,
+          isCorrect: true,
+          message: "Вы успешно зарегистрировались!",
+        }));
         navigate("/sign-in", { replace: true });
         setValues({
           email: "",
@@ -28,8 +35,15 @@ export default function Register({ setTooltipData, handleNotification }) {
         });
       })
       .catch((err) => {
-        handleNotification({ message: errorHandler(err), isCorrect: false });
-        setTooltipData((data) => ({ ...data, isOpen: true, isCorrect: false }));
+        setTooltipData((data) => ({
+          ...data,
+          isOpen: true,
+          isCorrect: false,
+          message: errorHandler(err),
+        }));
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -47,7 +61,6 @@ export default function Register({ setTooltipData, handleNotification }) {
             className="define-form"
             action="submit"
             name="define-form"
-            noValidate
             onSubmit={handleSubmit}
           >
             <label
@@ -85,7 +98,7 @@ export default function Register({ setTooltipData, handleNotification }) {
               aria-label="Кнопка отправки формы"
               type="submit"
             >
-              Зарегистрироваться
+              {isLoading ? <Loader isColored={true} /> : "Зарегистрироваться"}
             </button>
           </form>
           <Link className="define-section__link" to="/sign-in">

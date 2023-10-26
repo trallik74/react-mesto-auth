@@ -1,6 +1,6 @@
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useEffect, useState } from "react";
-import useValidation from "../useValidation";
+import useValidation from "../../hooks/useValidation";
 
 export default function AddCardPopup({ isOpen, onClose, onAddPlaceSubmit }) {
   const [values, setValues] = useState({

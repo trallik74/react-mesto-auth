@@ -52,7 +52,7 @@ export default function PopupWithForm({
             type="submit"
             disabled={!isEnabled}
           >
-            {isLoading ? <Loader /> : buttonText}
+            {isLoading ? <Loader isColored={false} /> : buttonText}
           </button>
         </form>
       </div>

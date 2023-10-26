@@ -3,9 +3,11 @@ import Header from "../Header/Header";
 import { Link, useNavigate } from "react-router-dom";
 import { authorize } from "../../utils/auth";
 import errorHandler from "../../utils/errorHandler";
+import Loader from "../Loader/Loader";
 
-export default function Login({ handleNotification, handleLogin, setEmail }) {
+export default function Login({ setTooltipData, handleLogin, setEmail }) {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -17,7 +19,7 @@ export default function Login({ handleNotification, handleLogin, setEmail }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-
+    setIsLoading(true);
     authorize(values["password"], values["email"])
       .then((res) => {
         if (res.token) {
@@ -31,7 +33,15 @@ export default function Login({ handleNotification, handleLogin, setEmail }) {
         }
       })
       .catch((err) => {
-        handleNotification({ message: errorHandler(err), isCorrect: false });
+        setTooltipData((data) => ({
+          ...data,
+          isOpen: true,
+          isCorrect: false,
+          message: errorHandler(err),
+        }));
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -48,7 +58,6 @@ export default function Login({ handleNotification, handleLogin, setEmail }) {
           className="define-form"
           action="submit"
           name="define-form"
-          noValidate
           onSubmit={handleSubmit}
         >
           <label
@@ -84,7 +93,7 @@ export default function Login({ handleNotification, handleLogin, setEmail }) {
             aria-label="Кнопка отправки формы"
             type="submit"
           >
-            Войти
+            {isLoading ? <Loader isColored={true} /> : "Войти"}
           </button>
         </form>
       </section>

@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
-import useValidation from "../useValidation";
+import useValidation from "../../hooks/useValidation";
 
 export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
   const [values, setValues] = useState({

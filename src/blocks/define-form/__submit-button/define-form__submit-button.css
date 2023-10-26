@@ -9,6 +9,9 @@
   width: 100%;
   cursor: pointer;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .define-form__submit-button:hover {

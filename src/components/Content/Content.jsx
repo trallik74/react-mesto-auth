@@ -5,13 +5,14 @@ import ChangeAvatarPopup from "../ChangeAvatarPopup/ChangeAvatarPopup";
 import EditProfilePopup from "../EditProfilePopup/EditProfilePopup";
 import ConfirmPopup from "../ConfirmPopup/СonfirmPopup";
 import ImagePopup from "../ImagePopup/ImagePopup";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../../utils/api";
 import errorHandler from "../../utils/errorHandler";
 import { CurrentUserContext } from "../../context/CurrentUserContext";
-import { IsLoadingContext } from "../../context/IsLoadingContext";
 import Header from "../Header/Header";
 import { useNavigate } from "react-router-dom";
+import { IsLoadingContext } from "../../context/IsLoadingContext";
+
 
 export default function Content({ email, handleLogout, ...props }) {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -19,7 +20,7 @@ export default function Content({ email, handleLogout, ...props }) {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
   const [isConfirmPopupOpen, setIsConfirmPopupOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useContext(IsLoadingContext);
   const [isRender, setIsRender] = useState(false);
   const [currentUser, setCurrentUser] = useState({
     name: "Пользователь",
@@ -225,7 +226,6 @@ export default function Content({ email, handleLogout, ...props }) {
           />
           <Footer />
         </div>
-        <IsLoadingContext.Provider value={[isLoading, setIsLoading]}>
           <EditProfilePopup
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}
@@ -247,7 +247,6 @@ export default function Content({ email, handleLogout, ...props }) {
             selectedCard={selectedCard}
             onCardDelete={handleCardDelete}
           />
-        </IsLoadingContext.Provider>
         <ImagePopup
           onClose={closeAllPopups}
           isOpen={isImagePopupOpen}

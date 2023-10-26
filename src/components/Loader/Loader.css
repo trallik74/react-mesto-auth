@@ -1,4 +1,4 @@
- .loader {
+.loader {
   width: 18px;
   height: 18px;
   border: 2px solid #fff;
@@ -6,16 +6,26 @@
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
-  animation: rotation .5s linear infinite;
-  }
+  animation: rotation 0.5s linear infinite;
+}
 
-  @keyframes rotation {
+.loader_type_colored {
+  border: 2px solid #000;
+  border-bottom-color: transparent;
+}
+
+@media (max-width: 400px) {
+  .loader_type_colored {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@keyframes rotation {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-  }
-
-
+}
