@@ -75,6 +75,7 @@ export default function Register({ setTooltipData }) {
                 placeholder="Email"
                 value={values["email"]}
                 onChange={handleInputChange}
+                required
               />
               <span className="define-form__input-error"></span>
             </label>
@@ -90,6 +91,7 @@ export default function Register({ setTooltipData }) {
                 placeholder="Пароль"
                 value={values["password"]}
                 onChange={handleInputChange}
+                required
               />
               <span className="define-form__input-error"></span>
             </label>

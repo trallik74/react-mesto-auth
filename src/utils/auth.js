@@ -38,14 +38,7 @@ export const authorize = (password, email) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ password, email }),
-  })
-    .then((res) => getResponseData(res, "a"))
-    .then((data) => {
-      if (data.token) {
-        localStorage.setItem("jwt", data.token);
-        return data;
-      }
-    });
+  }).then((res) => getResponseData(res, "a"));
 };
 
 export const checkToken = (token) => {

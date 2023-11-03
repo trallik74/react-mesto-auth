@@ -23,6 +23,7 @@ export default function Login({ setTooltipData, handleLogin, setEmail }) {
     authorize(values["password"], values["email"])
       .then((res) => {
         if (res.token) {
+          localStorage.setItem("jwt", res.token);
           handleLogin();
           setEmail(values.email);
           navigate("/", { replace: true });
@@ -72,6 +73,7 @@ export default function Login({ setTooltipData, handleLogin, setEmail }) {
               placeholder="Email"
               value={values["email"]}
               onChange={handleInputChange}
+              required
             />
           </label>
           <label
@@ -86,6 +88,7 @@ export default function Login({ setTooltipData, handleLogin, setEmail }) {
               value={values["password"]}
               onChange={handleInputChange}
               placeholder="Пароль"
+              required
             />
           </label>
           <button
